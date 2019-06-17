@@ -26,6 +26,16 @@
   border-radius: 25px;
   padding: 25px;
   font-size: calc(10px + 2vmin);
+  margin: 10px;
+
+}
+
+.Input {
+  color: #F95F62;
+  border-radius: 25px;
+  padding: 25px;
+  font-size: calc(10px + 2vmin);
+  margin: 10px;
 
 }
 
