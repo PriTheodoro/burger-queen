@@ -1,16 +1,14 @@
 import React from 'react';
-import './App.css';
-import logo from './img/logo.png';
-import Button from './components/button';
-import Input from './components/Input';
-import firebase from './firebaseConfig';
+import '../App.css';
+import Button from '../components/button';
+import Input from '../components/Input';
+import firebase from '../firebaseConfig';
 import withFirebaseAuth from 'react-with-firebase-auth';
-// import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 const database = firebase.firestore();
-const firebaseAppAuth = firebase.auth();
+const firebaseloginAuth = firebase.auth();
 
-class App extends React.Component {
+class login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,8 +16,7 @@ class App extends React.Component {
       email: "",
       place: "",
       password: "",
-      listItem: []
-    };
+       };
   }
 
   handleChange = (event, element) => {
@@ -34,7 +31,7 @@ class App extends React.Component {
       .then(() => {
         const idUser = Response.user.uid;
         if (Response) {
-          database.collection('cadastro').doc(idUser)
+          database.collection('cadastro').doc(idUser).get
           this.setState({
             email: this.state.email,
             name: this.state.name,
@@ -50,20 +47,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <img src={logo} className="App-logo"></img>
-        <header className="App-header">
+        
           <h1>FAÇA SEU LOGIN PARA COMEÇAR</h1>
           <Input value={this.state.email}
            type="email" placeholder="Digite seu email"
             onChange={(e) => this.handleChange(e, "email")} />
+          
           <Input value={this.state.password}
             type="password" placeholder="Digite sua senha"
             onChange={(e) => this.handleChange(e, "password")} />
+          
           <Button text="INICIAR" onClick={this.signIn} />
-        </header>
+       
       </div>
     );
   }
 }
 
-export default withFirebaseAuth({ firebaseAppAuth })(App);
+export default withFirebaseAuth({ firebaseloginAuth })(login);

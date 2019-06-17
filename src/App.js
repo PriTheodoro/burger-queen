@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
 import logo from './img/logo.png';
-import Button from './components/button';
-import login from './login';
-import cadastro from './cadastro';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import home from './pages/home';
+import login from './pages/login';
+import cadastro from './pages/cadastro';
+import choiceMenu from './pages/choiceMenu';
+import Breakfast from './pages/Breakfast';
+import lunchDinner from './pages/lunchDinner';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 function App() {
@@ -13,20 +16,15 @@ function App() {
       <div className="App">
         <img src={logo} className="App-logo"></img>
         <header className="App-header">
-          <h1>BEM VINDO</h1>
-          <Link to= "login">ENTRAR</Link> 
-          <Button
-            text="ENTRAR"
-            onClick={<Link to= "login"></Link>} /> 
-          <Button
-            text="CADASTRAR"
-            onClick={<Link to= "cadastro"></Link>} />
-          <Route path = "/" exact component={login}/>
-          <Route path = "/" exact component={cadastro}/> 
+          <Route path = "/" exact component={home}/>
+          <Route path = "/login" exact component={login}/>
+          <Route path = "/cadastro" exact component={cadastro}/> 
+          <Route path = "/choiceMenu" exact component={choiceMenu}/>
+          <Route path = "/Breakfast" exact component={Breakfast}/>
+          <Route path = "/lunchDinner" exact component={lunchDinner}/>
         </header>
       </div>
     </Router>
-  );
-  }
+  )} 
 
 export default App;
