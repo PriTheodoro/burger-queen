@@ -11,7 +11,7 @@
 }
 
 .App-header {
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -23,6 +23,7 @@
 .Button {
   background-color: #04065E;
   color: #F95F62;
+  width: 40vmin;
   border-radius: 25px;
   padding: 25px;
   font-size: calc(10px + 2vmin);
@@ -33,15 +34,13 @@
 .Input {
   color: #F95F62;
   border-radius: 25px;
+  width: 80vmin;
   padding: 25px;
   font-size: calc(10px + 2vmin);
   margin: 10px;
 
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {

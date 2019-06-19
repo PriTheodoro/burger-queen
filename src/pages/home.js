@@ -20,14 +20,15 @@ class home extends React.Component {
 
     return (
       <div className="App">
-        <h1>BEM VINDO</h1>
-        <Button
-          text="ENTRAR"
-          onClick={this.goEnter} />
-        <Button
-          text="CADASTRAR"
-          onClick={this.goRegister} />
-
+        <div className="App-header" >
+          <h1>BEM VINDO</h1>
+          <Button
+            text="ENTRAR"
+            onClick={this.goEnter} />
+          <Button
+            text="CADASTRAR"
+            onClick={this.goRegister} />
+        </div>
       </div>
     );
   }
