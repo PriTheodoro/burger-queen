@@ -30,25 +30,21 @@ class Register extends React.Component {
     this.props.createUserWithEmailAndPassword(this.state.email,
       this.state.password)
       .then((resp) => {
-        const idUser = resp.user.uid
-        console.log(idUser)
-        database.collection('cadastro').doc(idUser)
-          .set({
-            name: this.state.name,
-            email: this.state.email,
-            place: this.state.place,
-
-          })
+        if(resp) {
+          database.collection('cadastro').doc(resp.user.uid)
+            .set({
+              name: this.state.name,
+              email: this.state.email,
+              place: this.state.place,
+            })
           .then(() => {
             if (this.state.place === "Salão") {
-              this.props.history.push('/choiceMenu')
-
-            } else { this.props.history.push('/kitchen') }
-          })
-      })
+             this.props.history.push('/choiceMenu')
+              } else { this.props.history.push('/kitchen') }
+          });
+          };
+      });
   }
-
-
 
   render() {
     return (
@@ -69,7 +65,7 @@ class Register extends React.Component {
             onChange={(e) => this.handleChange(e, "place")} />
 
           <Input value={this.state.password} yarn add react-select
-            type="password" placeholder="Crie sua senha" handleClickyarn add react-select
+            type="password" placeholder="Crie sua senha" 
             onChange={(e) => this.handleChange(e, "password")} />
 
           <Button text="Criar sua conta" onClick={this.createUser} />

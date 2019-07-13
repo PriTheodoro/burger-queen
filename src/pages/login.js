@@ -29,23 +29,19 @@ class Login extends React.Component {
     this.props.signInWithEmailAndPassword(this.state.email,
       this.state.password)
       .then((resp) => {
-        const idUser = resp.user.uid;
         if (resp) {
-          database.collection('cadastro').doc(idUser).get()
+          database.collection('cadastro').doc(resp.user.uid).get()
             .then((resp) => {
-              resp.data()
-              .then(data => {
-              if(data.place === "Salão"){ 
-                this.props.history.push('/choiceMenu') 
-              }else if (data.place === "Cozinha") {
+              const data = resp.data();
+              if (data.place === "Salão") {
+                this.props.history.push('/choiceMenu')
+              } else if (data.place === "Cozinha") {
                 this.props.history.push('/kitchen')
               }
             }).catch((err) => alert(err));
-          });
-        }  else {
+        } else {
           alert("Usuário não cadastrado!")
         }
-    
       });
   }
 
