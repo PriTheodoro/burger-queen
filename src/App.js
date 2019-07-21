@@ -1,23 +1,23 @@
 import React from 'react';
 import './App.css';
-import Logo from './img/logo.png';
+import Logo from '../src/assets/img/logo.png';
 import Home from './pages/home';
 import Login from './pages/login';
 import Cadastro from './pages/cadastro';
 import Kitchen from './pages/kitchen';
 import ChoiceMenu from './pages/choiceMenu';
-import Breakfast from './pages/Breakfast';
+import Breakfast from './pages/breakfast';
 import LunchDinner from './pages/lunchDinner';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 function App() {
   return (
-    <Router>
+      <Router>
       <div className="App">
         <img src={Logo} className="App-logo" 
         alt= "logo é um circulo com uma coroa dentro e gira 360 graus"></img>
-        <header className="App-header">
+        <header>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/cadastro" exact component={Cadastro} />
